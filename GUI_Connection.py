@@ -2,7 +2,7 @@
 
 
 def Wake_up():
-    button = 0
+    button = 1
     return button
 
 def SendtoGUI(mess, ID):
