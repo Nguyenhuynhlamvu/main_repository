@@ -24,10 +24,10 @@ audio_file = 'recorded_audio.wav'
 
 
 
-
+relative_path = '/home/xuanai/Desktop/Library_robot/'
 #STT
 # load model and tokenizer
-model_stt_dir = 'models/nguyenvulebinh--wav2vec2-base-vietnamese-250h/snapshots/69e9000591623e5a4fc2f502407860bcdc0de0b2'
+model_stt_dir = relative_path + 'models/nguyenvulebinh--wav2vec2-base-vietnamese-250h/snapshots/69e9000591623e5a4fc2f502407860bcdc0de0b2'
 processor = Wav2Vec2Processor.from_pretrained(model_stt_dir)
 model = Wav2Vec2ForCTC.from_pretrained(model_stt_dir)
 
@@ -49,7 +49,7 @@ def get_decoder_ngram_model(tokenizer, ngram_lm_path):
                                    language_model=LanguageModel(lm_model))
     return decoder
 
-lm_file = 'models/vi_lm_4grams.bin'
+lm_file = relative_path + 'models/vi_lm_4grams.bin'
 ngram_lm_model = get_decoder_ngram_model(processor.tokenizer, lm_file)
 
 # define function to read in sound file
